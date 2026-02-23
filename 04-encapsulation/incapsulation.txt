@@ -1,0 +1,102 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class customer{
+    private:
+    int customerid;
+    string name;
+    int units;
+    int rate;
+       double TotalAmount;
+      double surchargeAmount;
+   
+    public:
+    customer(){
+        customerid = 0;
+        name = " ";
+        units = 0;
+          rate = 0;
+        TotalAmount = 0;
+       surchargeAmount = 0;
+    }
+    private:
+    void CustomerInput(){
+        cout << "Please enter your ID: " << endl;
+        cin >> customerid;
+       
+        cout << "Please enter your Name: " << endl;
+        cin >> name;
+       
+        cout << "Please enter your Units: " << endl;
+        cin >> units;
+    }
+   
+    void CustomerInfo(){
+       
+        cout << "Your ID is: " << customerid << endl;
+           cout << "Your Name is: " << name << endl;
+              cout << "Your Units is: " << units << endl;
+    }
+   
+    void AssignRate(){
+       rate = 0;
+        if (units < 100){
+            rate = 50;
+        }
+       
+         else {
+            rate = 80;
+        }
+    }
+   
+    double BeforeSurcharge(){
+      TotalAmount = rate * units;
+      return TotalAmount;
+    }
+   
+      double AfterSurcharge(){
+          if (TotalAmount > 2000){
+              surchargeAmount = TotalAmount * 0.05;
+          }
+         
+          else {
+            surchargeAmount = 0;
+        }
+      return surchargeAmount;
+    }
+   
+    double FinalBill(){
+        return surchargeAmount + TotalAmount;
+    }
+   
+    void CompleteBillingInfo(){
+        cout << "------------ Billing Info ------------  " << endl;
+        cout << "Total Bill before surcharge: " << TotalAmount << endl;
+         cout << "Total Bill After surcharge: " << surchargeAmount << endl;
+           cout << "Finall Bill" << FinalBill() << endl;
+         if (FinalBill() >= 3000){
+             cout << "High Consumption " << endl;}
+             else {cout << "Normal Consumption " << endl;}
+         }
+   
+   
+    public:
+    void ShowCompleteInfo(){
+        CustomerInput();
+        CustomerInfo();
+        cout << "Total units consumed:" << units << endl;
+        AssignRate();
+        cout << BeforeSurcharge() << endl;
+         cout << AfterSurcharge() << endl;
+         CompleteBillingInfo();
+    }
+   
+};
+
+int main(){
+ customer c;
+    c.ShowCompleteInfo();
+   
+    return 0;
+}
