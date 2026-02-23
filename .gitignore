@@ -1,0 +1,23 @@
+# Compiled output
+*.exe
+*.out
+*.o
+*.obj
+
+# Build directories
+build/
+bin/
+dist/
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
