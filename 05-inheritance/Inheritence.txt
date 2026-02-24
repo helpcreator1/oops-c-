@@ -1,46 +1,40 @@
-
 #include <iostream>
-#include <string>
 using namespace std;
-class Device{
-    public:
-    void info(){
-            cout << "A device need to be charged" << endl;}    
+
+class Shape{
+public:
+    double area;
+    double volume;
 };
 
-class Mobile:public Device{
-    public:
-    void size(){ 
-        cout << "Compact & Pocket Size" << endl;}
-    };
-    
-    class TV:public Device{
-    public:
-    void size(){ 
-        cout << "22 Inches something" << endl;}
-    };
-    
-    class Ipad:public Device{
-    public:
-    void size(){ 
-        cout << "10 Inchces something" << endl;
+class Cube : public Shape{
+public:
+    double side;
+
+    Cube(double side){
+        this->side = side;
+        this->area = side * side * 6;
+        this->volume = side * side * side;
     }
 };
 
+class Sphere : public Shape{
+public:
+    double radius;
+
+    Sphere(double radius){
+        this->radius = radius;
+        this->area = 4 * 3.14159 * (radius * radius);
+        this->volume = (4/3.0) * 3.14159 * (radius * radius * radius);
+    }
+};
 
 int main() {
-  Mobile m;
-  TV tv;
-  Ipad ipad;
-  
-  m.info();
-    m.size();
-      
-  tv.info();
-    tv.size();
-      
-  ipad.info();
-    ipad.size();
-
+    Cube c(10);
+       Sphere s(10);
+cout << c.area << endl;
+cout << c.volume << endl;
+cout << s.area << endl;
+cout << s.volume << endl;
     return 0;
 }
