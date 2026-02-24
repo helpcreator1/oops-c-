@@ -1,0 +1,46 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+class Device{
+    public:
+    void info(){
+            cout << "A device need to be charged" << endl;}    
+};
+
+class Mobile:public Device{
+    public:
+    void size(){ 
+        cout << "Compact & Pocket Size" << endl;}
+    };
+    
+    class TV:public Device{
+    public:
+    void size(){ 
+        cout << "22 Inches something" << endl;}
+    };
+    
+    class Ipad:public Device{
+    public:
+    void size(){ 
+        cout << "10 Inchces something" << endl;
+    }
+};
+
+
+int main() {
+  Mobile m;
+  TV tv;
+  Ipad ipad;
+  
+  m.info();
+    m.size();
+      
+  tv.info();
+    tv.size();
+      
+  ipad.info();
+    ipad.size();
+
+    return 0;
+}
